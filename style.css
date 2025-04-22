@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: aquamarine;
+}
+input {
+  display: block;
+}
+section {
+  max-width: 350px;
+  margin: 10px auto;
+}
+
+button {
+  display: block;
+  margin-top: 10px;
+}
+
+.selectNumber {
+  display: inline-block;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #ead5e7;
+
+  border-left: 1x solid #000000;
+  border-right: 1px solid #000000;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 15%;
+}
+.selectNumber:nth-child(even) {
+  background-color: rgb(255, 255, 255);
+}
+.selectNumber.black {
+  background-color: black;
+}
