@@ -18,7 +18,6 @@ for (let i = 0; i < selectNumberBtns.length; i++) {
   });
 }
 
-
 btnRandomNum.addEventListener("click", function () {
   randomNum = [];
   for (let i = 0; randomNum.length < 6; i++) {
@@ -37,7 +36,7 @@ btnRandomNum.addEventListener("click", function () {
 });
 
 submitBtn.addEventListener("click", takeNumber);
-btnRandomNum.addEventListener("click",takeNumber);
+btnRandomNum.addEventListener("click", takeNumber);
 function takeNumber() {
   yourNum = [];
   let num2 = [];
@@ -65,7 +64,6 @@ function takeNumber() {
   random();
 
   compare();
-  
 }
 
 // btnRandomNum.addEventListener("click",
