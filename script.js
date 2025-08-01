@@ -1,11 +1,21 @@
-let selectNumberBtns = document.getElementsByClassName("selectNumber");
+let selectNumberBtns = document.querySelectorAll(".selectNumber");
 let btnRandomNum = document.getElementById("randomNum");
 let submitBtn = document.getElementById("submit");
+let resetBtn = document.getElementById("reset");
 btnRandomNum.style.color = "red";
 submitBtn.style.color = "red";
 let selectedNumber = [];
 let randomNum = [];
 let yourNum = [];
+
+const reset = () => {
+  yourNum.length = 0;
+  selectNumberBtns.forEach((button) => {
+    button.classList.remove("black");
+  });
+};
+
+resetBtn.addEventListener("click", reset);
 
 for (let i = 0; i < selectNumberBtns.length; i++) {
   selectNumberBtns[i].addEventListener("click", function () {
@@ -31,7 +41,7 @@ btnRandomNum.addEventListener("click", function () {
     return a - b;
   });
 
-  document.getElementById("result").innerHTML =
+  document.getElementById("numbers").innerHTML =
     "Twój wynik to liczby: " + randomNum;
 });
 
@@ -58,6 +68,7 @@ function takeNumber() {
   }
 
   yourNum = yourNum.sort(function (a, b) {
+    document.getElementById("numbers").innerHTML = "Your Numbers: " + yourNum;
     return a - b;
   });
 
@@ -80,8 +91,7 @@ function random() {
     return a - b;
   });
 
-  document.getElementById("result").innerHTML =
-    "Twój wynik to liczby: " + randomNum;
+  document.getElementById("result").innerHTML = "Winning numbers:" + randomNum;
 }
 
 function compare() {

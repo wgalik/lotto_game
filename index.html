@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
 
-    <title>Document</title>
+    <title>6/49 Lottery</title>
   </head>
   <body>
+    <h1>Choose 6 numbers from 1 to 49</h1>
     <section>
       <div class="buttons">
-        <h1>Wybierz 6 liczb od 1 do 49</h1>
         <button class="selectNumber">1</button>
         <button class="selectNumber">2</button>
         <button class="selectNumber">3</button>
@@ -64,10 +64,13 @@
         <button class="selectNumber">49</button>
       </div>
       <hr />
-      <button type="submit" id="submit">Wybierz</button>
+      <button id="submit">Play Your Numbers</button>
+      <button id="reset">Choose Again</button>
+      <button id="randomNum">Quick Pick</button>
     </section>
 
-    <button id="randomNum">Hit and miss</button>
-    <p id="result"></p>
+    <p id="numbers">Your Numbers:</p>
+
+    <p id="result">Winning numbers:</p>
   </body>
 </html>
