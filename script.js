@@ -27,8 +27,6 @@ const reset = () => {
   [numbers, result, matched].forEach((element) => (element.innerHTML = ""));
 };
 
-const clear = () => {};
-
 const takeNumber = () => {
   yourNum = [];
   const black = document.querySelectorAll(".black");
@@ -69,11 +67,8 @@ btnRandomNum.addEventListener("click", quickPick);
 const random = () => {
   randomNum = [];
   for (let i = 0; randomNum.length < 6; i++) {
-    let num1 = Math.floor(Math.random() * 49) + 1;
-
-    if (randomNum.indexOf(num1) === -1) {
-      randomNum.push(num1);
-    }
+    let num = Math.floor(Math.random() * 49) + 1;
+    if (randomNum.indexOf(num) === -1) randomNum.push(num);
   }
   randomNum = randomNum.sort((a, b) => a - b);
   randomNum = randomNum.map((number) => `<span>${number}</span>`);
@@ -83,16 +78,8 @@ const random = () => {
 const compare = () => {
   matchedNumbers = [];
   if (yourNum.length == 6) {
-    console.log(randomNum);
-    console.log(yourNum);
-
     for (let i = 0; i < randomNum.length; i++) {
-      if (yourNum.indexOf(randomNum[i]) >= 0) {
-        matchedNumbers.push(randomNum[i]);
-        win += 1;
-      } else {
-        lost += 1;
-      }
+      if (yourNum.indexOf(randomNum[i]) >= 0) matchedNumbers.push(randomNum[i]);
     }
   }
   matched.innerHTML = matchedNumbers.join(" ");
