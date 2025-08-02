@@ -86,7 +86,7 @@ h1 span:hover {
   scale: 1.1;
 }
 
-.buttons {
+.numbers {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -120,7 +120,7 @@ h1 span:hover {
   background-color: darkorange;
 }
 .selectNumber.black {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 .selectNumber:hover {
   font-size: 1.6rem;
@@ -131,4 +131,47 @@ h1 span:hover {
 }
 .selectNumber.black:hover {
   box-shadow: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+}
+
+#submit,
+#reset,
+#random {
+  padding: 5px;
+  background-color: cornflowerblue;
+  font-family: inherit;
+  color: antiquewhite;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0);
+}
+#submit:active,
+#reset:active,
+#random:active {
+  text-shadow: -1px -1px 1px rgba(0, 0, 0);
+  box-shadow: inset 1px 1px 2px black;
+}
+
+#numbers span span,
+#result span span,
+#matched span span {
+  display: inline-block;
+  background-color: gold;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  line-height: 2;
+  text-align: center;
+  margin: 5px 0 0 5px;
+  box-shadow: 1px 1px 2px black;
 }

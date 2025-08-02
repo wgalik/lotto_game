@@ -10,9 +10,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-
-    <title>6/49 Lottery</title>
     <script src="script.js" defer></script>
+    <title>6/49 Lottery</title>
   </head>
   <body>
     <main>
@@ -20,7 +19,7 @@
         <span><span></span><span></span></span> 6/49 Lottery
       </h1>
       <h3>Choose 6 numbers from 1 to 49</h3>
-      <div class="buttons">
+      <section class="numbers">
         <button class="selectNumber">1</button>
         <button class="selectNumber">2</button>
         <button class="selectNumber">3</button>
@@ -70,14 +69,20 @@
         <button class="selectNumber">47</button>
         <button class="selectNumber">48</button>
         <button class="selectNumber">49</button>
-      </div>
-      <button id="submit">Play Your Numbers</button>
-      <button id="reset">Choose Again</button>
-      <button id="randomNum">Quick Pick</button>
+      </section>
+      <section class="buttons">
+        <button id="submit">Play Your Numbers</button>
+        <button id="reset">Choose Again</button>
+        <button id="random">Quick Pick</button>
+      </section>
 
-      <p id="numbers">Your Numbers:</p>
+      <p id="numbers">
+        Your Numbers: <br />
+        <span></span>
+      </p>
 
-      <p id="result">Winning numbers:</p>
+      <p id="result">Winning Numbers: <br /><span></span></p>
+      <p id="matched">Matched Numbers: <br /><span></span></p>
     </main>
   </body>
 </html>

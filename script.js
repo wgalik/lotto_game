@@ -1,11 +1,14 @@
 const selectNumberBtns = document.querySelectorAll(".selectNumber");
-const btnRandomNum = document.querySelector("#randomNum");
+const btnRandomNum = document.querySelector("#random");
 const submitBtn = document.querySelector("#submit");
 const resetBtn = document.querySelector("#reset");
+const numbers = document.querySelector("#numbers span");
+const result = document.querySelector("#result span");
+const matched = document.querySelector("#matched span");
 let selectedNumber,
   randomNum,
-  yourNum = [];
-let lost, win;
+  yourNum,
+  matchedNumbers = [];
 
 selectNumberBtns.forEach((number) => {
   number.addEventListener("click", () => {
@@ -16,23 +19,27 @@ selectNumberBtns.forEach((number) => {
 });
 
 const reset = () => {
-  yourNum.length = 0;
+  yourNum = [];
+  randomNum = [];
+  matchedNumbers = [];
   const black = document.querySelectorAll(".black");
   black.forEach((button) => button.classList.remove("black"));
-  document.getElementById("numbers").innerHTML = "";
+  [numbers, result, matched].forEach((element) => (element.innerHTML = ""));
 };
+
+const clear = () => {};
 
 const takeNumber = () => {
   yourNum = [];
-  let black = [];
-  for (let i = 0; i < 6; i++) {
-    black = Number(document.getElementsByClassName("black")[i].innerHTML);
-    yourNum.push(black);
+  const black = document.querySelectorAll(".black");
+  if (black.length < 6) return;
+  else {
+    black.forEach((number) => {
+      const value = Number(number.innerHTML);
+      yourNum.push(value);
+    });
   }
-  yourNum = yourNum.sort((a, b) => a - b);
-  document.getElementById("numbers").innerHTML = "Your Numbers: " + yourNum;
-  random();
-  compare();
+  toSort();
 };
 
 const quickPick = () => {
@@ -44,10 +51,13 @@ const quickPick = () => {
     let num = Math.floor(Math.random() * 49) + 1;
     if (yourNum.indexOf(num) === -1) yourNum.push(num);
   }
+  toSort();
+};
+
+const toSort = () => {
   yourNum = yourNum.sort((a, b) => a - b);
-
-  document.getElementById("numbers").innerHTML = "Your Numbers: " + yourNum;
-
+  yourNum = yourNum.map((number) => `<span>${number}</span>`);
+  numbers.innerHTML = yourNum.join(" ");
   random();
   compare();
 };
@@ -65,31 +75,25 @@ const random = () => {
       randomNum.push(num1);
     }
   }
-  randomNum = randomNum.sort(function (a, b) {
-    return a - b;
-  });
-
-  document.getElementById("result").innerHTML = "Winning numbers:" + randomNum;
+  randomNum = randomNum.sort((a, b) => a - b);
+  randomNum = randomNum.map((number) => `<span>${number}</span>`);
+  result.innerHTML = randomNum.join(" ");
 };
 
 const compare = () => {
-  lost = 0;
-  win = 0;
-  let winningNumbers = [];
+  matchedNumbers = [];
   if (yourNum.length == 6) {
     console.log(randomNum);
     console.log(yourNum);
 
     for (let i = 0; i < randomNum.length; i++) {
       if (yourNum.indexOf(randomNum[i]) >= 0) {
-        winningNumbers.push(randomNum[i]);
+        matchedNumbers.push(randomNum[i]);
         win += 1;
       } else {
         lost += 1;
       }
     }
   }
-  console.log("trafione: ", win);
-  console.log("nie trafione: ", lost);
-  console.log("Winning numbers: ", winningNumbers);
+  matched.innerHTML = matchedNumbers.join(" ");
 };
