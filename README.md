@@ -12,3 +12,20 @@ A simple and interactive web-based version of the classic **6/49 lottery** game.
   - Winning Numbers
   - Matched Numbers
 - 💡 Stylish and responsive UI using only HTML, CSS, and JavaScript
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Flexbox, media queries)
+- Vanilla JavaScript (ES6)
+
+## 🧠 What You Can Learn From This Project
+
+- DOM manipulation and event handling
+- Basic game logic with random number generation
+- Managing UI state
+- Responsive and accessible UI layout
+
+## 📄 License
+
+This project is open source and available under the MIT License.
